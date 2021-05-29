@@ -339,7 +339,7 @@ If UPDATE-P is non-nil, first remove the file in the database."
                       (push (vector id (match-string 2 ref)
                                     (match-string 1 ref)) rows))
                   (lwarn '(org-roam) :warning
-                         "%s:%s\tInvalid ref %s, skipping..."
+                         "%s:%s\tInvalid (org-roam-db-insert-file-node) ref %s, skipping..."
                          (buffer-file-name) (point) ref)))
               (when rows
                 (org-roam-db-query
@@ -402,7 +402,7 @@ If UPDATE-P is non-nil, first remove the file in the database."
               (progn
                 (push (vector node-id (match-string 2 ref) (match-string 1 ref)) rows))
             (lwarn '(org-roam) :warning
-                   "%s:%s\tInvalid ref %s, skipping..." (buffer-file-name) (point) ref))))
+                   "%s:%s\tInvalid (org-roam-db-insert-refs) ref %s, skipping..." (buffer-file-name) (point) ref))))
       (org-roam-db-query [:insert :into refs
                           :values $v1]
                          rows))))
